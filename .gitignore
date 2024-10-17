@@ -1,0 +1,7 @@
+# Ignore Python compiled files
+*.pyc
+
+# Ignore CSV data files
+*.csv
+
+mle-dev/
