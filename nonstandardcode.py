@@ -48,20 +48,20 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
 
 def load_housing_data(housing_path=HOUSING_PATH):
     """
-    Calculate the proportion of each income category in the provided DataFrame.
+    Load housing data from a CSV file into a pandas DataFrame.
 
-    This function takes a DataFrame as input and computes the relative proportions
-    of different income categories defined in the 'income_cat' column. The proportions
-    are calculated as the count of each category divided by the total number of entries
-    in the DataFrame.
+    This function reads a CSV file containing housing data located at the specified
+    path and returns it as a pandas DataFrame. The default path is set to 
+    the global variable `HOUSING_PATH`.
 
     Args:
-    data (DataFrame): A pandas DataFrame containing an 'income_cat' column.
+    housing_path (str): The directory path where the 'housing.csv' file is located.
+                        Defaults to the value of `HOUSING_PATH`.
 
     Returns:
-    Series: A pandas Series containing the proportions of each income category,
-            indexed by the category labels.
+    pd.DataFrame: A pandas DataFrame containing the housing data loaded from the CSV file.
     """
+    
     csv_path = os.path.join(housing_path, "housing.csv")  # Path for the CSV file
     return pd.read_csv(csv_path)  # Load the CSV data into a pandas DataFrame
 
