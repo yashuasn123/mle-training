@@ -32,7 +32,7 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
     into the specified directory (housing_path). If the directory doesn't exist, it 
     creates the directory.
 
-    Parameters:
+    Args:
     housing_url (str): The URL of the housing dataset to be downloaded.
     housing_path (str): The local directory where the dataset will be stored.
 
@@ -48,7 +48,19 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
 
 def load_housing_data(housing_path=HOUSING_PATH):
     """
-    Load the housing data as a pandas DataFrame.
+    Calculate the proportion of each income category in the provided DataFrame.
+
+    This function takes a DataFrame as input and computes the relative proportions
+    of different income categories defined in the 'income_cat' column. The proportions
+    are calculated as the count of each category divided by the total number of entries
+    in the DataFrame.
+
+    Args:
+    data (DataFrame): A pandas DataFrame containing an 'income_cat' column.
+
+    Returns:
+    Series: A pandas Series containing the proportions of each income category,
+            indexed by the category labels.
     """
     csv_path = os.path.join(housing_path, "housing.csv")  # Path for the CSV file
     return pd.read_csv(csv_path)  # Load the CSV data into a pandas DataFrame
@@ -76,7 +88,22 @@ for train_index, test_index in split.split(housing, housing["income_cat"]):
 
 def income_cat_proportions(data):
     """
-    Calculate income category proportions.
+    Calculate the proportions of income categories in the given DataFrame.
+
+    This function computes the relative proportions of each unique income category 
+    found in the 'income_cat' column of the provided DataFrame. The proportions 
+    are calculated as the count of each category divided by the total number of 
+    entries in the DataFrame, providing insight into the distribution of income 
+    categories.
+
+    Args:
+    data (pd.DataFrame): A pandas DataFrame that must contain an 'income_cat' column, 
+                         which holds the income category values.
+
+    Returns:
+    pd.Series: A pandas Series containing the proportions of each income category,
+               indexed by the category labels. The values represent the fraction of 
+               the total dataset that each category comprises.
     """
     return data["income_cat"].value_counts() / len(data)
 
