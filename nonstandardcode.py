@@ -27,6 +27,17 @@ HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
 def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
     """
     Fetch the housing data from the provided URL and extract it to the specified path.
+
+    This function downloads the housing dataset from the given URL, and extracts it 
+    into the specified directory (housing_path). If the directory doesn't exist, it 
+    creates the directory.
+
+    Parameters:
+    housing_url (str): The URL of the housing dataset to be downloaded.
+    housing_path (str): The local directory where the dataset will be stored.
+
+    Returns:
+    None
     """
     os.makedirs(housing_path, exist_ok=True)  # Create the directory if it doesn't exist
     tgz_path = os.path.join(housing_path, "housing.tgz")  # Path for the .tgz file
