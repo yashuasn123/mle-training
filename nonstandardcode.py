@@ -7,7 +7,7 @@ import yaml
 from scipy.stats import randint
 from six.moves import urllib
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.impute import SimpleImputer
+from sklearn.impute import SimpleImputer  
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import (
     mean_absolute_error,
