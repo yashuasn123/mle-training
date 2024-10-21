@@ -1,0 +1,35 @@
+{
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+
+    
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ],
+
+    
+    "python.sortImports.args": ["--profile", "black"],
+
+    
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,  
+    "editor.trimAutoWhitespace": true,  
+
+    
+    "editor.formatOnSave": true,
+
+    
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,  
+        "source.fixAll": true            
+    },
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}
